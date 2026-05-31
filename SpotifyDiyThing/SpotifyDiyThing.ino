@@ -10,6 +10,9 @@
 // ----------------------------
 // Display type
 // ---------------------------
+#elif defined(E32R40T_DISPLAY)
+  #include "e32r40tLCD.h"
+  E32R40TDisplay display;
 
 // This project currently supports the following displays
 // (Uncomment the required #define)
