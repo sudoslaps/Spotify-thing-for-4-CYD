@@ -113,6 +113,26 @@ jobs:
           cp .pio/build/trinity/partitions.bin GitHubPages/ESPWebTools/matrix
           cp /home/runner/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin GitHubPages/ESPWebTools/matrix
           cp .pio/build/trinity/firmware.bin GitHubPages/ESPWebTools/matrix
+         
+        #Build E32R40T
+        - name: Build E32R40T
+        run: platformio run -e e32r40t
+
+        - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+        name: E32R40T Firmware
+        path: .pio/build/e32r40t/firmware.bin
+        if-no-files-found: error
+
+        - name: Copy compiled binaries for webflash
+        run: |
+        mkdir GitHubPages/ESPWebTools/e32r40t
+        cp GitHubPages/ESPWebTools/manifest.json GitHubPages/ESPWebTools/e32r40t
+        cp .pio/build/e32r40t/bootloader.bin GitHubPages/ESPWebTools/e32r40t
+        cp .pio/build/e32r40t/partitions.bin GitHubPages/ESPWebTools/e32r40t
+        cp /home/runner/.platformio/packages/framework-arduinoespressif32/tools/partitions/boot_app0.bin GitHubPages/ESPWebTools/e32r40t
+        cp .pio/build/e32r40t/firmware.bin GitHubPages/ESPWebTools/e32r40t
 
       # Build GitHub Page
       - name: Setup Github Page
