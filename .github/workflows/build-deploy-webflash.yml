@@ -139,7 +139,7 @@ jobs:
         uses: actions/configure-pages@v4
 
       - name: Build GitHub Page with Jekyll
-        uses: actions/jekyll-build-pages@v4
+        uses: actions/jekyll-build-pages@v1
         with:
           source: ./GitHubPages
           destination: ./_site
