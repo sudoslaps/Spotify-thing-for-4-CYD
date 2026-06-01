@@ -1,6 +1,9 @@
 #ifndef SPOTIFYDISPLAY_H
 #define SPOTIFYDISPLAY_H
 
+#include <SpotifyArduino.h>
+#include <WiFiManager.h>
+
 class SpotifyDisplay {
   public:
     virtual void displaySetup(SpotifyArduino *spotifyObj) = 0;
